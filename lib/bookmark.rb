@@ -1,14 +1,13 @@
 require 'pg'
 class Bookmark
   def self.all
-    # bookmark_arrays = []
-    conn = PG.connect( dbname: 'bookmark_manager', user: 'rakshakshetty' )
-    @records = conn.exec( "SELECT * FROM bookmarks" )
-    @records.map { |bookmark| bookmark['url'] }
-    # @records.each do |bookmark|
-    #  bookmark_arrays << bookmark['url']
-    
-    # bookmark_arrays
+    if ENV['ENVIRONMENT'] == 'test'
+      conn = PG.connect( dbname: 'bookmark_manager_test')
+    else 
+      conn = PG.connect( dbname: 'bookmark_manager')
+    end
+    records = conn.exec( "SELECT * FROM bookmarks" )
+    records.map { |bookmark| bookmark['url'] }
   end
 end
     
