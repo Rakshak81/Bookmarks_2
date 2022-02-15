@@ -2,7 +2,7 @@ class Bookmark
   def self.all
     [
       "http://www.makersacademy.com",
-      "https://miro.com/app/board/uXjVONQRX4Y=/"
-      ]
+      "http://www.destroyallsoftware.com",
+      "http://www.google.com"
     end
 end
