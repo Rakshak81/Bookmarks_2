@@ -1,3 +1,4 @@
+require 'pg'
 require 'bookmark'
 
 describe Bookmark do
